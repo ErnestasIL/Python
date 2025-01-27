@@ -66,14 +66,40 @@
 
 #-------------------------------
 
-def dalink_spec(sk1, sk2, iki_sveiko_sk=False):
-    if not iki_sveiko_sk:
-        return sk1 / sk2
-    return sk1 // sk2
+# def dalink_spec(sk1, sk2, iki_sveiko_sk=False):
+#     if not iki_sveiko_sk:
+#         return sk1 / sk2
+#     return sk1 // sk2
+#
+# print(dalink_spec(777, 5, True))
 
-print(dalink_spec(777, 5, True))
+# def button_modify_product(product, inform_client = False):
+#     if not inform_client:
+#         print('Product was modified succesfuly, by system!')
+#     return product * 50
+#
+# button_modify_product('tapkes', True)
+# button_modify_product('tapkes')
+
+#--------------------------dokstringai/
 
 
+# def say_hello(name):
+#     """
+#     Priima varda ir atspausdina
+#     :param name: zmogaus vardas
+#     :return:
+#     """
+#
+#     print(f'Hello, {name}')
+#
+# say_hello('Lopnu')
+# print()
+
+
+# def add(x: int, y: int) -> int:     #IMPORTANT!!!!
+#     return x + y
+# add(1, 3)
 
 
 
