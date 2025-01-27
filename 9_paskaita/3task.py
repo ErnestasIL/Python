@@ -12,10 +12,12 @@ print('------------------------------------------')
 
 
 def sveikink_su_pavadinimu(vardas, pavadinimas = 'drauge'):
-    return f'Sveikas {vardas}! Ka veiki, {pavadinimas}'
+    print(f'Sveikas {vardas}! Ka veiki, {pavadinimas}')
 
-print(sveikink_su_pavadinimu('Kazys'))
+sveikink_su_pavadinimu('Kazys')
 # print(sveikink_su_pavadinimu('Kazys', 'kolega'))
-print(sveikink_su_pavadinimu(
+sveikink_su_pavadinimu(
     vardas='Kazys',
-    pavadinimas= 'kolega'))
+    pavadinimas= 'kolega')
+
+
