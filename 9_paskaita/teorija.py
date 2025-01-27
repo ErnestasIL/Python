@@ -64,9 +64,14 @@
 #
 
 
+#-------------------------------
 
+def dalink_spec(sk1, sk2, iki_sveiko_sk=False):
+    if not iki_sveiko_sk:
+        return sk1 / sk2
+    return sk1 // sk2
 
-
+print(dalink_spec(777, 5, True))
 
 
 
