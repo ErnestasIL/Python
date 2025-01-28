@@ -1,6 +1,6 @@
 #1task
 
-def skaiciuoti_sumos_tipa(numb1, numb2, tik_teikgiama=False):
+def skaiciuoti_sumos_tipa(numb1, numb2, tik_teikgiama=False) -> int:
     suma = numb1 + numb2
     if tik_teikgiama:
         suma = max(suma, 0)
@@ -13,7 +13,7 @@ print(skaiciuoti_sumos_tipa(1, 3, True ))
 
 #2task
 
-def apskaiciuok_vidurki(skaiciai):
+def apskaiciuok_vidurki(skaiciai: list) -> float:
     """
     Apskaičiuoja ir grąžina sąrašo skaičių vidurkį.
 
@@ -31,7 +31,7 @@ print(apskaiciuok_vidurki([3, 15, 12, 11, 5, 7]))
 #3task
 
 def prideti_zodi(tekstas: str, zodis: str) -> str:
-    return tekstas + ' ' + zodis
+    return tekstas + " " + zodis
 
 res= prideti_zodi('As gale', 'Pradzia ')
 print(res)
