@@ -27,12 +27,12 @@
 
 #--------- modulio trumpinimas
 
-import random as rn
-
-random_number = rn.randint(1, 25)
-
-random_month = rn.choice(['sausis', 'varasis', 'kovas'])
-
+# import random as rn
+#
+# random_number = rn.randint(1, 25)
+#
+# random_month = rn.choice(['sausis', 'varasis', 'kovas'])
+#
 
 
 
