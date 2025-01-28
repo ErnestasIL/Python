@@ -39,6 +39,34 @@
 # print(rnt(1, 49))
 
 
+#------------modulio kurimas
+
+
+
+import aritmetikosmodulis
+
+res = aritmetikosmodulis.dalink(9, 3)
+print(res)
+
+res = aritmetikosmodulis.daugink(9, 3)
+print(res)
+
+res = aritmetikosmodulis.atimk(9, 3)
+print(res)
+
+res = aritmetikosmodulis.sumuok(9, 3)
+print(res)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
