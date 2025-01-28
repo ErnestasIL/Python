@@ -2,7 +2,8 @@
 #---------------
 # from matematika import sudetis, daugyba  #task 2
 #---------------
-import matematika as m   #task 3
+from mylib import matematika as m
+
 #------Task 1-------------
 # res = matematika.sudetis(10, 20)
 # print(res)
