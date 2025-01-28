@@ -34,8 +34,9 @@
 # random_month = rn.choice(['sausis', 'varasis', 'kovas'])
 #
 
-
-
+# from random import randint as rnt
+#
+# print(rnt(1, 49))
 
 
 
