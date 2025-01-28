@@ -43,21 +43,21 @@
 
 
 
-import aritmetikosmodulis
+# from aritmetikosmodulis import dalink, daugink, atimk, sumuok
+#
+# res = dalink(9, 3)
+# print(res)
+#
+# res = daugink(9, 3)
+# print(res)
+#
+# res = atimk(9, 3)
+# print(res)
+#
+# res = sumuok(9, 3)
+# print(res)
 
-res = aritmetikosmodulis.dalink(9, 3)
-print(res)
-
-res = aritmetikosmodulis.daugink(9, 3)
-print(res)
-
-res = aritmetikosmodulis.atimk(9, 3)
-print(res)
-
-res = aritmetikosmodulis.sumuok(9, 3)
-print(res)
-
-
+#------------------
 
 
 
