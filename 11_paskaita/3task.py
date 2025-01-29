@@ -1,7 +1,7 @@
 def rodyti_duomenis(**kwargs):
-    print(kwargs)
-
-rodyti_duomenis(vardas="Petras", pavarde="Petraitis", gim_metai=1991, lytis='vyras')
+    for raktas, reiksme in kwargs.items():
+        print(f'{raktas}: {reiksme}')
+rodyti_duomenis(vardas="Petras", pavarde="Petraitis", miestas="Prienai")
 
 def registruoti_naudotoja(vardas, el_pastas, **kwargs):
     print(f"Vardas: {vardas}\nEl. paštas: {el_pastas}")
