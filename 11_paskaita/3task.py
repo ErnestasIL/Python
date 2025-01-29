@@ -13,10 +13,8 @@ def registruoti_naudotoja(vardas, el_pastas, **kwargs):
 registruoti_naudotoja('John', 'john.cena@cantseeme.com', ocupation='wrestler', lytis='male')
 print('---------------------')
 
-random_list = ['something', 'creeping', 'behind', 'you']
 def atspausdinti_lista(listas, **kwargs):
-    for elem in listas:
-        print(elem, 'its_me', **kwargs)
+    print(*listas, **kwargs)
 
 
-atspausdinti_lista(random_list, sep=' @@ ', end=' ^.^ ')
+atspausdinti_lista(['something', 'creeping', 'behind', 'you'], sep=' @@ ', end=' ^.^ ')
