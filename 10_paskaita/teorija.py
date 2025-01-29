@@ -59,16 +59,16 @@
 
 #------------------moduliai is folderio
 
-import mylib
+# import mylib
 # import mylib.aritmetikosmodulis
 # import mylib.aritmetikosmodulis as matematika
 # from mylib.aritmetikosmodulis import sumuok
 # from mylib.aritmetikosmodulis import sumuok as plusplus
 # res = mylib.aritmetikosmodulis.sumuok(1, 2)
 
-res = mylib.aritmetikosmodulis.sumuok(1, 2)
+# res = mylib.aritmetikosmodulis.sumuok(1, 2)
 
-print(res)
+# print(res)
 
 
 
