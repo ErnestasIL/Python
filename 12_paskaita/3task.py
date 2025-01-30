@@ -4,7 +4,7 @@ while True:
     try:
         res = int(ivestis)
         print(res)
-    except:
+    except ValueError:
         print('huh?')
     else:
         print(f'conversion succesfull: {res}')
