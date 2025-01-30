@@ -71,12 +71,56 @@ list_duomenu = ['sausis', 'vasaris', 'kovas']
 # print_list(list_duomenu, skirtukas='|||', eilutes_pabaiga ='***\n')
 
 
-def print_list(listas, **kwargs):
-    for elem in listas:
-        print(elem, 'men.', **kwargs)
-
+# def print_list(listas, **kwargs):
+#     for elem in listas:
+#         print(elem, 'men.', **kwargs)
+#
 # print_list(list_duomenu, sep='>>>')
-print_list(list_duomenu, sep='>>>', end='---')
+# print_list(list_duomenu, sep='>>>', end='---')
+
+
+# def kelk_laipsniu(sk, laispnis=2, **kwargs):
+#     res = sk ** laispnis
+#     return res
+#
+# def call_kelk_laipsniu(sk, **kwargs):
+#     return kelk_laipsniu(sk, **kwargs)
+#
+# print(kelk_laipsniu(2, laispnis=3, radianas=2))
+
+#-------------Lambda
+
+#
+# darbuotojai = [
+#     ['Valdas', 'programuotojas', 2000],
+#     ['Adomas', 'direktorius', 3000],
+#     ['Aldona', 'vadybininkas', 1800],
+#     ['Jogaila', 'programuotojas', 2500]
+# ]
+#
+# res = sorted(darbuotojai)
+#
+# print(res)
+#
+# # def grazink_index_1(listas):
+# #     return listas[1]
+#
+# res = sorted(darbuotojai, key=lambda listas: listas[1])
+# print(res)
+
+# lambda argumentai: israiska
+
+# def sudeti(a, b):
+#     return a + b
+#
+# print(sudeti(3, 6))
+#
+# sudeti_lambda = lambda a, b: a + b
+#
+# print(sudeti_lambda(5, 5))
+
+
+
 
 
 
