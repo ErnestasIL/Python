@@ -1,4 +1,3 @@
-
 while True:
     ivestis = input('Provide a number: ')
     try:
