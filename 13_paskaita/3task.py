@@ -1,10 +1,15 @@
 import datetime
+#-----------------------
 
-user_date = '2001-09-11'
+user_date = input("Įveskite datą formatu YYYY-MM-DD: ")
+
+try:
+    print(datetime.datetime.strptime(user_date, '%Y-%m-%d'))
+except ValueError:
+    print("Įvestas neteisingas datos formatas. Bandykite dar kartą su formatu YYYY-MM-DD.")
+#--------------------
+
 user_date2 = '2022-12-31, 23:59:59'
-
-print(datetime.datetime.strptime(user_date, '%Y-%m-%d'))
-
 object_datetime = datetime.datetime(2022, 12, 31, 23, 59, 59)
 
 print(object_datetime.strftime('%d/%m/%Y %H:%M:%S'))
