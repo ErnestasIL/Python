@@ -6,4 +6,4 @@ print(second_date.strftime('%Y-%m-%d'))
 
 day_from_2000 = datetime.datetime.today() - datetime.datetime(2000, 1, 1)
 
-print(f'Praejo {day_from_2000.days} dienu, nuo 2000-01-01')
+print(f'Praejo {day_from_2000.days} dienos, nuo 2000-01-01')
