@@ -9,3 +9,4 @@ def tikrinti_amziu(amzius):
 tikrinti_amziu(-5)
 tikrinti_amziu(15)
 tikrinti_amziu(21)
+
