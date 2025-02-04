@@ -20,6 +20,6 @@ millennium_date = datetime(2000, 1, 1)
 res2 = current_date - millennium_date
 
 print(f'days: {res2.days}d')
-print(f'hours(using seconds): {int(res2.seconds // 3600)}h')
-print(f'hours(using total_seconds): {int(res2.total_seconds() / 3600)}h')
+print(f'hours(using seconds): {(res2.seconds // 3600)}h')
+print(f'hours(using total_seconds): {(res2.total_seconds() // 3600)}h')
 print(f'total seconds: {int(res2.total_seconds())}s')
