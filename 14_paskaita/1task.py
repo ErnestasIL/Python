@@ -18,5 +18,6 @@ class Book:
 book1 = Book('Harry Potter', 'J.K Rowling', 1997)
 book2 = Book('House of dragon', 'JJ Martin', 2005)
 
+
 print(book1.title, book1.year)
 print(book2.title, book2.year)
