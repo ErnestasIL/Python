@@ -15,9 +15,9 @@ print(f'Data po 90 dienu bus: {res}')
 
 #3task
 
-milenium_date = datetime.datetime(2000, 1, 1)
+millennium_date = datetime.datetime(2000, 1, 1)
 
-res2 = current_date - milenium_date
+res2 = current_date - millennium_date
 
 print(f'days: {res2.days}d')
 print(f'hours(using seconds): {round(res2.seconds / 3600)}h')
