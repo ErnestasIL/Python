@@ -62,6 +62,22 @@ class Library:
                 return
         print('Book was not found or you did not borrow it.')
 
+    def filter_books(self, *args, **kwargs):
+        filtered_books = self.books
+        for key, value in kwargs.items():
+             if key == 'title':
+                 filtered_books = [book for book in filtered_books if book.title.lower() == value.lower()]
+             elif key == 'author':
+                 filtered_books = [book for book in filtered_books if book.author.lower() == value.lower()]
+             elif key =='year':
+                 filtered_books = [book for book in filtered_books if book.year == value]
+        if filtered_books:
+             for book in filtered_books:
+                 print(book)
+        else:
+             print('No match found')
+
+
 library = Library()
 
 while True:
@@ -72,7 +88,6 @@ while True:
     print('4. Return a book')
     print('5. Filter available books')
     print('6. Exit and close the program')
-
     choice = input('Enter your choice: ')
     if choice == '1':
         title = input('Enter book title: ')
@@ -92,7 +107,22 @@ while True:
         title = input('Enter book title you want to return: ')
         library.return_book(title)
     elif choice == '5':
-        print('Do not know how lmao')
+        print('\nFilter options:')
+        print('1. Filter by title')
+        print('2. Filter by author')
+        print('3. Filter by year')
+        filter_choice = input('Enter your filter choice: ')
+        if filter_choice == '1':
+            title = input('Enter book title: ')
+            library.filter_books(title=title)
+        elif filter_choice == '2':
+             author = input('Enter authors name: ')
+             library.filter_books(author=author)
+        elif filter_choice == '3':
+            year = int(input('Enter book year: '))
+            library.filter_books(year=year)
+        else:
+            print('Invalid filter choice.')
     elif choice == '6':
         print('Program closing down... Goodbye!')
         break
