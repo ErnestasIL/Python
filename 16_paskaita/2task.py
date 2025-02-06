@@ -2,7 +2,7 @@ class Engine:
     def __init__(self, power):
         self.power = power
     def start(self):
-        print(f'Engine has: {self.power} horsepower')
+        print(f'Engine has: {self.power} HP')
 
 class Car():
     def __init__(self, brand, model, power):
@@ -12,7 +12,7 @@ class Car():
     def ride(self):
         self.engine.start()
     def __str__(self):
-        return f'{self.brand} {self.model} with {self.engine.power} HP'
+        return f'{self.brand} {self.model}'
 
 vehicles = [
     Car('Toyota', 'Corolla', 200),
