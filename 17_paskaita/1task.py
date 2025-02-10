@@ -70,7 +70,7 @@ class BankoSaskaita:
                 self.__balansas -= suma
                 print(f"Nuskaiciuota {suma}$. likutis: {self.__balansas}$")
             else:
-                print("Nepakanka lesų operacijai atlikti.")
+                print("Nepakanka lesu operacijai atlikti.")
         else:
             print("Suma turi buti teigiama.")
 
