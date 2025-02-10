@@ -78,7 +78,7 @@ class BankoSaskaita:
 saskaita = BankoSaskaita("Pete")
 saskaita.prideti_pinigus(200)
 saskaita.nuskaičiuoti_pinigus(50)
-print(f"Galutinis balansas: {saskaita.gauti_balansa()}€")
+print(f"balanso likutis: {saskaita.gauti_balansa()}€")
 saskaita.nuskaičiuoti_pinigus(100)
 
 
