@@ -30,7 +30,7 @@ class StudentasLyderis(Studentas):
             vidurkis = (sum(self._pazymiai) + self.bonus) / len(self._pazymiai)
             print(f'vidurkis su bonusu: {round(vidurkis)}')
         else:
-            print('Erorr')
+            print('Error')
 
 
 studentas = Studentas('Bronius', 'Pop')
@@ -60,15 +60,15 @@ class BankoSaskaita:
     def prideti_pinigus(self, suma):
         if suma > 0:
             self.__balansas += suma
-            print(f"Prideta {suma}€. balansas: {self.__balansas}€")
+            print(f"Prideta {suma}$. balansas: {self.__balansas}$")
         else:
             print("Suma negali buti neigiama.")
 
-    def nuskaičiuoti_pinigus(self, suma):
+    def nuskaiciuoti_pinigus(self, suma):
         if suma > 0:
             if self.__balansas >= suma:
                 self.__balansas -= suma
-                print(f"Nuskaiciuota {suma}€. ikutis: {self.__balansas}€")
+                print(f"Nuskaiciuota {suma}$. likutis: {self.__balansas}$")
             else:
                 print("Nepakanka lesų operacijai atlikti.")
         else:
@@ -77,10 +77,11 @@ class BankoSaskaita:
 
 saskaita = BankoSaskaita("Pete")
 saskaita.prideti_pinigus(200)
-saskaita.nuskaičiuoti_pinigus(50)
-print(f"balanso likutis: {saskaita.gauti_balansa()}€")
-saskaita.nuskaičiuoti_pinigus(100)
+saskaita.nuskaiciuoti_pinigus(50)
+print(f"balanso likutis: {saskaita.gauti_balansa()}$")
+saskaita.nuskaiciuoti_pinigus(100)
 
-
+# tikrinu = saskaita.__balansas = 200
+# print(tikrinu)
 
 
