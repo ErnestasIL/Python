@@ -13,7 +13,6 @@ class Darbuotojas:
         if suma >= 500:
             self.__atlyginimas = suma
         else:
-            # print('Negali gauti maziau negu 500 pinigu')
             raise ValueError('Negali gauti maziau negu 500 pinigu')
 
     @property
@@ -30,4 +29,6 @@ mokes = darb.mokesciai
 print(f'Atlyginimas: {atl}')
 print(f'Mokesciai: {mokes}')
 print('-' * 20)
-darb.atlyginimas = 400
+try:darb.atlyginimas = 400
+except ValueError as e:
+    print(f'Klaida: {e}')
