@@ -81,7 +81,6 @@ saskaita.nuskaiciuoti_pinigus(50)
 print(f"balanso likutis: {saskaita.gauti_balansa()}$")
 saskaita.nuskaiciuoti_pinigus(100)
 
-# tikrinu = saskaita.__balansas = 200
-# print(tikrinu)
 
+# print(saskaita.__balansas)
 
