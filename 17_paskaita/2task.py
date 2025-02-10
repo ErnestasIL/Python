@@ -13,7 +13,8 @@ class Darbuotojas:
         if suma >= 500:
             self.__atlyginimas = suma
         else:
-            print('Negali gauti maziau negu 500 pinigu')
+            # print('Negali gauti maziau negu 500 pinigu')
+            raise ValueError('Negali gauti maziau negu 500 pinigu')
 
     @property
     def mokesciai(self):
