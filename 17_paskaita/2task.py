@@ -29,6 +29,7 @@ mokes = darb.mokesciai
 print(f'Atlyginimas: {atl}')
 print(f'Mokesciai: {mokes}')
 print('-' * 20)
-try:darb.atlyginimas = 400
+try:
+    darb.atlyginimas = 400
 except ValueError as e:
     print(f'Klaida: {e}')

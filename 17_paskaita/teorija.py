@@ -78,16 +78,46 @@
 # atl2 = darb1.atlyginimas
 # print(atl2)
 
+#-------------------------------------
+# class Calculator:
+#
+#     @staticmethod
+#     def add(num1, num2):
+#         return num1 + num2
+#
+#     @staticmethod
+#     def sub(num1, num2):
+#         return num1 - num2
+#
+# a = Calculator.add(1, 2)
+# print(a)
+#
+# b = Calculator.sub(10, 5)
+# print(b)
 
 
+class Darbuotojas:
+    def __init__(self, vardas, pavarde, pareigos):
+        self.vardas = vardas
+        self.pavarde = pavarde
+        self.pareigos = pareigos
 
+    @classmethod
+    def sukurk_is_vienos_eilutes(cls, eilute):
+        vardas, pavarde, pareigos = eilute.split()
+        return cls(vardas, pavarde, pareigos)
 
+    def __str__(self):
+        return f'Vardas: {self.vardas}. Pavarde: {self.pavarde}. Pareigos: {self.pareigos}.'
 
+    def pakeisti_pareigas(self, naujos):
+        self.pareigos = naujos
 
-
-
-
-
+eilute = 'Jonas Jonaitis Kiemsargis'
+darb = Darbuotojas.sukurk_is_vienos_eilutes(eilute)
+print(darb)
+darb.pakeisti_pareigas('Director')
+print(darb)
 
 
 
