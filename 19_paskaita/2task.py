@@ -27,7 +27,7 @@ def skaityti_mokyklas(min_mokiniu_skaicius=None):
 
     mokyklos = c.fetchall()
     for mokykla in mokyklos:
-        print(f"Mokykla: {mokykla[0]}, Adresas: {mokykla[1]}, Mokinių skaicius: {mokykla[2]}")
+        print(f"Mokykla: {mokykla[0]}, Adresas: {mokykla[1]}, Mokiniu skaicius: {mokykla[2]}")
 
 
 prideti_mokykla('Vilniaus progimnazija', 'Vilniaus g. 10', 500)
