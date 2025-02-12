@@ -1,18 +1,17 @@
 import sqlite3
 
-conn = sqlite3.connect('pavizdys.db')
+conn = sqlite3.connect('mokykla.db')
 
 c = conn.cursor()
 
 c.execute(
 '''
     CREATE TABLE IF NOT EXISTS sudentai (
-    vardas TEXT,
-    pavarde TEXT,
-    klase INTEGER)
+    pavadinimas TEXT,
+    adresas TEXT,
+    mokyniu_skaicius INTEGER)
 '''
 )
-
 
 conn.commit()
 conn.close()
