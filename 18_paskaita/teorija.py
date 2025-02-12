@@ -53,31 +53,75 @@
 #     def atlyginimas(self):
 #         return self.__atlyginimas
 
+#
+# def registratorius(funkcija):
+#     def apvalkalas(argumentas):
+#         rezultatas = funkcija(argumentas)
+#         if rezultatas % 2 == 0:
+#             print(f'{rezultatas} yra Lyginis')
+#         else:
+#             print(f'{rezultatas} yra nelyginis')
+#         return rezultatas
+#     return apvalkalas
+#
+# @registratorius
+# def kvardaru(skaicius):
+#     return skaicius ** 2
+#
+# print(kvardaru(8))
 
-def registratorius(funkcija):
-    def apvalkalas(argumentas):
-        rezultatas = funkcija(argumentas)
-        if rezultatas % 2 == 0:
-            print(f'{rezultatas} yra Lyginis')
-        else:
-            print(f'{rezultatas} yra nelyginis')
-        return rezultatas
-    return apvalkalas
+# class Darbuotojas:
+#     def __init__(self, vardas, pavarde, pareigos):
+#         self.vardas = vardas
+#         self.pavarde = pavarde
+#         self.pareigos = pareigos
+#
+#     def __iter__(self):
+#         return iter([self.vardas, self.pavarde, self.pareigos, 'Labas', 'Mano', 'Vardas', self.vardas ])
+#
+# darbuotojas = Darbuotojas("Jonas", "Jonaitis", "Programuotojas")
+# for savybe in darbuotojas:
+#     print(savybe)
 
-@registratorius
-def kvardaru(skaicius):
-    return skaicius ** 2
+# listas = ['sausis', 'vasaris', 'kovas']
+# listo_operatorius = iter(listas)
+# print(listas)
+# print(listo_operatorius)
+#
+# res = next(listo_operatorius)
+# print(res)
+# res = next(listo_operatorius)
+# print(res)
 
-print(kvardaru(8))
+# def skaiciuok_iki(max_reiksme):
+#     skaicius = 0
+#     while skaicius < max_reiksme:
+#         yield skaicius
+#         skaicius += 1
+#
+# for numeris in skaiciuok_iki(5):
+#     print(numeris)
+#
 
+# func to count number of given word
+def print_even(test_string):
+    for i in test_string:
+        if i == "geeks":
+            yield i
 
+# initializing string
+test_string = " There are many geeks around you, \
+              geeks are known for teaching other geeks"
 
+# count numbers of geeks used in string
+count = 0
+print("The number of geeks in string is : ", end="")
+test_string = test_string.split()
 
+for j in print_even(test_string):
+    count = count + 1
 
-
-
-
-
+print(count)
 
 
 
