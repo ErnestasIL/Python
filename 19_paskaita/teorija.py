@@ -1,3 +1,4 @@
+import cmath
 import sqlite3
 
 def init_database():
@@ -28,11 +29,23 @@ def print_all_studentai_names():
         for row in c.execute("SELECT vardas FROM studentai"):
             print(row[0])
 
+def change_klase_by_namme(klase, vardas):
+    with sqlite3.connect('pavizdys.db') as conn:
+        c = conn.cursor()
+        c.execute('UPDATE studentai SET klase = ? WHERE vardas = ?', (klase, vardas))
 
-init_database()
+def remove_row_by_name(vardas):
+    with sqlite3.connect('pavizdys.db') as conn:
+        c = conn.cursor()
+        c.execute('DELETE FROM studentai WHERE vardas = ?', (vardas,))
 
-append_to_studentai('John', 'Jonaitis', 11)
-append_to_studentai('Gitanas', 'Nauseda', 11)
-append_to_studentai('Dalia', 'Grybauskaite', 11)
+def delete_all():
+    with sqlite3.connect('pavizdys.db') as conn:
+        c = conn.cursor()
+        c.execute('DELETE FROM studentai')
 
-print_all_studentai_names()
+remove_row_by_name('John')
+
+change_klase_by_namme(10, 'Dalia')
+print_all_studentai_rows()
+delete_all()

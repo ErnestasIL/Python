@@ -12,12 +12,14 @@ c.execute('''
 ''')
 conn.commit()
 
+
 def prideti_mokykla(pavadinimas, adresas, mokiniu_skaicius):
     c.execute('''
         INSERT INTO mokykla (pavadinimas, adresas, mokiniu_skaicius)
         VALUES (?, ?, ?)
     ''', (pavadinimas, adresas, mokiniu_skaicius))
     conn.commit()
+
 
 def skaityti_mokyklas(min_mokiniu_skaicius=0):
     c.execute('SELECT * FROM mokykla WHERE mokiniu_skaicius > ?', (min_mokiniu_skaicius,))
@@ -27,15 +29,13 @@ def skaityti_mokyklas(min_mokiniu_skaicius=0):
     for mokykla in mokyklos:
         print(f"Mokykla: {mokykla[0]}, Adresas: {mokykla[1]}, Mokiniu skaicius: {mokykla[2]}")
 
+def atnaujinti_mokiniu_skaicius(pavadinimas, mokiniu_skaicius):
+    c.execute('UPDATE mokykla SET mokiniu_skaicius = ? WHERE pavadinimas = ?', (mokiniu_skaicius, pavadinimas))
+    conn.commit()
 
-prideti_mokykla('Vilniaus progimnazija', 'Vilniaus g. 10', 500)
-prideti_mokykla('Kauno gimnazija', 'Kauno g. 5', 800)
-
-print('Visos mokyklos:')
 skaityti_mokyklas()
+print('-' * 40)
+atnaujinti_mokiniu_skaicius('Kauno gimnazija', 969)
 
-
-print('\nMokyklos su daugiau nei 600 mokiniu:')
-skaityti_mokyklas(600)
-
+skaityti_mokyklas()
 conn.close()
