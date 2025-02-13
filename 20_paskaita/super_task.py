@@ -5,7 +5,7 @@ def create_database():
     c = conn.cursor()
 
     c.execute('''CREATE TABLE IF NOT EXISTS students (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    id INTEGER,
                     name TEXT NOT NULL,
                     surname TEXT NOT NULL,
                     grade INTEGER,
@@ -39,82 +39,79 @@ class Teacher(Person):
 
 def log_operation(func):
     def wrapper(*args, **kwargs):
-        print("Ongoing operation...")
-        return func(*args, **kwargs)
+        try:
+            print(f'Executing: {func.__name__}')
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f'Error in {func.__name__}: {e}')
     return wrapper
 
 @log_operation
 def insert_student(student):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute('INSERT INTO students (name, surname, grade, average) VALUES (?, ?, ?, ?)',(student.name, student.surname, student.grade, student.average))
-    conn.commit()
-    conn.close()
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO students (name, surname, grade, average) VALUES (?, ?, ?, ?)',(student.name, student.surname, student.grade, student.average))
 
 @log_operation
 def insert_teacher(teacher):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute('INSERT INTO teachers (name, surname, subject) VALUES (?, ?, ?)', (teacher.name, teacher.surname, teacher.subject))
-    conn.commit()
-    conn.close()
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO teachers (name, surname, subject) VALUES (?, ?, ?)', (teacher.name, teacher.surname, teacher.subject))
 
 @log_operation
 def update_student_by_id(student_id, new_grade):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute('UPDATE students SET grade = ? WHERE id = ?', (new_grade, student_id))
-    conn.commit()
-    conn.close()
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('UPDATE students SET grade = ? WHERE id = ?', (new_grade, student_id))
 
 @log_operation
 def update_teacher(teacher_id, new_subject):
-    conn = sqlite3.connect('school.db')
-    c = conn. cursor()
-    c.execute('UPDATE teachers SET subject = ? WHERE id = ?', (new_subject, teacher_id))
-    conn.commit()
-    conn.close()
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('UPDATE teachers SET subject = ? WHERE id = ?', (new_subject, teacher_id))
 
 @log_operation
 def delete_student(student_id):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute('DELETE FROM students WHERE id = ?', (student_id,))
-    conn.commit()
-    conn.close()
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM students WHERE id = ?', (student_id,))
 
 @log_operation
-def delete_teacher(teachert_id):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute('DELETE FROM teachers WHERE id = ?', (teachert_id,))
-    conn.commit()
-    conn.close()
+def delete_teacher(teacher_id):
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM teachers WHERE id = ?', (teacher_id,))
 
 @log_operation
 def search_student(name, surname):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute("SELECT * FROM students WHERE name = ? AND surname = ?", (name, surname))
-    result = c.fetchone()
-    return result
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM students WHERE name = ? AND surname = ?", (name, surname))
+        result = cursor.fetchone()
+        return result
 @log_operation
 
 def search_teacher(name, surname):
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute("SELECT * FROM teachers WHERE name = ? AND surname = ?", (name, surname))
-    result = c.fetchone()
-    return result
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM teachers WHERE name = ? AND surname = ?", (name, surname))
+        result = cursor.fetchone()
+        return result
 
 @log_operation
 def get_all_students():
-    conn = sqlite3.connect('school.db')
-    c = conn.cursor()
-    c.execute('SELECT * FROM students')
-    result = c.fetchall()
-    conn.close()
-    return result
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM students')
+        result = cursor.fetchall()
+        return result
+
+def get_all_teachers():
+    with sqlite3.connect('school.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM teachers')
+        result = cursor.fetchall()
+        return result
 
 class StudentIterator:
     def __init__(self, students):
@@ -136,22 +133,52 @@ def show_all_students():
     student_iterator = StudentIterator(students)
 
     for student in student_iterator:
+        print(f"ID: {student[0]}, Name: {student[1]}, Surname: {student[2]}, Grade: {student[3]}, Average: {student[4]}")
+
+def show_all_teachers():
+    teacher = get_all_teachers()
+    teacher_iterator = StudentIterator(teacher)
+
+    for student in teacher_iterator:
         print(student)
 
-
 def add_student():
-    try:
-        name = input('Enter student name: ')
-        surname = input('Enter student surname: ')
-        grade = int(input('Enter student grade: '))
-        average = float(input('Enter student average: '))
-        student = Student(name, surname, grade,average)
-        insert_student(student)
-        print('Student added successfully!')
-    except ValueError:
-        print('ERROR: wrong format...')
+    name = input('Enter student name: ')
+    surname = input('Enter student surname: ')
+    while True:
+        try:
+            grade = int(input('Enter student grade: '))
+            break
+        except ValueError:
+            print('ERROR: Grade must be integer')
+    while True:
+        try:
+            average = float(input('Enter student average: '))
+            break
+        except ValueError:
+            print('ERROR: Average must be a number')
+    student = Student(name, surname, grade, average)
+    insert_student(student)
+    print('Student added successfully!')
+
+def add_teacher():
+    name = input('Enter teacher name: ')
+    surname = input('Enter teacher surname: ')
+    subject = input('Enter teacher subject: ')
+    teacher = Teacher(name, surname, subject)
+    insert_teacher(teacher)
+    print('Teacher added successfully!')
+
+def remove_student_by_id():
+    student_id = int(input('Enter student ID to delete: '))
+    delete_student(student_id)
+    print('Student has been deleted')
+
 
 
 create_database()
-add_student()
+# add_student()
+remove_student_by_id()
 show_all_students()
+# add_teacher()
+# show_all_teachers()
