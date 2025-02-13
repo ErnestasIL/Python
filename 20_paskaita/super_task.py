@@ -139,8 +139,8 @@ def show_all_teachers():
     teacher = get_all_teachers()
     teacher_iterator = StudentIterator(teacher)
 
-    for student in teacher_iterator:
-        print(student)
+    for teacher in teacher_iterator:
+        print(f"ID: {teacher[0]}, Name: {teacher[1]}, Surname: {teacher[2]}, subject: {teacher[3]}")
 
 def add_student():
     name = input('Enter student name: ')
@@ -178,7 +178,7 @@ def remove_student_by_id():
 
 create_database()
 # add_student()
-remove_student_by_id()
-show_all_students()
+# remove_student_by_id()
+# show_all_students()
 # add_teacher()
-# show_all_teachers()
+show_all_teachers()
