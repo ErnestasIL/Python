@@ -11,14 +11,14 @@ Base = declarative_base()
 class Student(Base):
     __tablename__ = 'students'
     id = Column(Integer, primary_key=True)
-    first_name = Column(String, unique=True)
+    first_name = Column(String)
     surname = Column(String)
 
 
 class Teacher(Base):
     __tablename__ = 'teachers'
     id = Column(Integer, primary_key=True)
-    first_name = Column(String, unique=True)
+    first_name = Column(String)
     surname = Column(String)
 
 
