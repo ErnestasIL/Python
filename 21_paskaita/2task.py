@@ -58,7 +58,6 @@ def get_all_teachers():
     for teacher in teachers:
         print(teacher.id, teacher.first_name, teacher.surname)
 
-
 while True:
     print("\n1. Add Student")
     print("2. Add Teacher")
