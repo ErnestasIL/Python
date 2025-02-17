@@ -22,12 +22,13 @@ class Teacher(Base):
     surname = Column(String)
 
 
+Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
 def insert_student():
     first_name = input("Enter student first name: ")
     surname = input("Enter student surname: ")
-    if not session.query(Student).filter_by(first_name=first_name, surname=surname).first():
+    if not session.query(Student).filter_by(surname=surname).first():
         session.add(Student(first_name=first_name, surname=surname))
         session.commit()
         print("Student added successfully!")
@@ -38,7 +39,7 @@ def insert_student():
 def insert_teacher():
     first_name = input("Enter teacher first name: ")
     surname = input("Enter teacher surname: ")
-    if not session.query(Teacher).filter_by(first_name=first_name, surname=surname).first():
+    if not session.query(Teacher).filter_by(surname=surname).first():
         session.add(Teacher(first_name=first_name, surname=surname))
         session.commit()
         print("Teacher added successfully!")
