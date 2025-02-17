@@ -57,26 +57,24 @@ def get_all_teachers():
     for teacher in teachers:
         print(teacher.id, teacher.first_name, teacher.surname)
 
-def menu():
-    while True:
-        print("\n1. Add Student")
-        print("2. Add Teacher")
-        print("3. View All Students")
-        print("4. View All Teachers")
-        print("5. Exit")
-        choice = input("Enter choice: ")
 
-        if choice == '1':
-            insert_student()
-        elif choice == '2':
-            insert_teacher()
-        elif choice == '3':
-            get_all_students()
-        elif choice == '4':
-            get_all_teachers()
-        elif choice == '5':
-            break
-        else:
-            print("Invalid choice, try again.")
+while True:
+    print("\n1. Add Student")
+    print("2. Add Teacher")
+    print("3. View All Students")
+    print("4. View All Teachers")
+    print("5. Exit")
+    choice = input("Enter choice: ")
+    if choice == '1':
+        insert_student()
+    elif choice == '2':
+        insert_teacher()
+    elif choice == '3':
+        get_all_students()
+    elif choice == '4':
+        get_all_teachers()
+    elif choice == '5':
+        break
+    else:
+        print("Invalid choice, try again.")
 
-menu()
