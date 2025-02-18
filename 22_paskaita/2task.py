@@ -24,7 +24,7 @@ mokiniai = [
     Mokinys(vardas="Kastytis", pavarde="Kerbedis", klase=12),
     Mokinys(vardas="Marius", pavarde="Mclarenas", klase=12),
 ]
-
+# session.add_all(mokiniai)
 session.commit()
 
 def spausdinti_mokinius():
