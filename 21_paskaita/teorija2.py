@@ -21,7 +21,7 @@
 #
 # session.delete()
 
-from models import Projektas, engine
+from teorija import Projektas, engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import MultipleResultsFound, NoResultFound
 
@@ -53,7 +53,7 @@ except MultipleResultsFound:
 
 
 
-# filtered_rows = session.query(Projektas).filter_by(pavadinimas='Web project').first()
+filtered_rows = session.query(Projektas).filter_by(pavadinimas='Web project').first()
 
 # print(filtered_rows)
 
