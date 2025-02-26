@@ -16,10 +16,11 @@ with conn:
 inp_username = input('Enter Username: ')
 inp_password = input('Enter Password: ')
 
-# query = f"SELECT * FROM admin_users WHERE admin_users.username= '{inp_username}' AND admin_users.password= '{inp_password}';"
+query = f"SELECT * FROM admin_users WHERE admin_users.username= '{inp_username}' AND admin_users.password= '{inp_password}';"
 
 with conn:
-    c.execute("SELECT * FROM admin_users WHERE admin_users.username= ? AND admin_users.password= ?;", (inp_username, inp_password))
+    c.execute(query)
+    # c.execute("SELECT * FROM admin_users WHERE admin_users.username= ? AND admin_users.password= ?;", (inp_username, inp_password))
     res = c.fetchall()
     if res:
         print('your login info is:')
