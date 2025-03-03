@@ -53,7 +53,6 @@ Base.metadata.create_all(engine)
 
 
 
-
 # conn = sqlite3.connect('sql_injection.db')
 # c = conn.cursor()
 #
