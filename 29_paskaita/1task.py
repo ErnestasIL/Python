@@ -10,9 +10,9 @@ def home():
 def about():
     return 'This is a page about us :)'
 
-@app.route('/user/<text>')
-def user(text):
-    return f'Hello {text}, Happy to see you!'
+@app.route('/user/<name>')
+def user(name):
+    return f'Hello {name}, Happy to see you!'
 
 @app.route('/number/<int:item>')
 def number(item):

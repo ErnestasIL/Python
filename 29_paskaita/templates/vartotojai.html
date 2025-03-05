@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User list</title>
+    </head>
+    <body>
+        <p>Users:</p>
+        {% for elem in names_for_template %}
+        <p>- <a href="/vartotojas/{{ elem }}">{{ elem }}</a></p>
+        {% endfor %}
+    </body>
+</html>
