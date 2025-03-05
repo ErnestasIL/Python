@@ -57,7 +57,7 @@ def new_student():
         name = request.form.get('name')
         surname = request.form.get('surname')
         grade = request.form.get('grade')
-        new_student_row = Mokinys(name, surname, grade)
+        new_student_row = Mokinys(name=name, surname=surname, grade=grade)
         db.session.add(new_student_row)
         db.session.commit()
     return redirect(url_for('home'))
