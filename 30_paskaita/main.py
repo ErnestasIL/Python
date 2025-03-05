@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 
@@ -22,6 +22,10 @@ class Projektas(db.Model):
     kaina = db.Column(db.Float)
     sukurimo_data = db.Column(db.DateTime, default=datetime.datetime.now)
 
+    @property
+    def kaina_su_pvm(self):
+        return round(self.kaina * 1.21)
+
     def __init__(self, pavadinimas, kaina):
         self.pavadinimas = pavadinimas
         self.kaina = kaina
@@ -34,41 +38,35 @@ with app.app_context():
     db.create_all()
 
 
-@app.route('/')
-def home():
-    all_rows = Projektas.query.all()
-    return render_template('index.html', projektas_rows=all_rows)
+# @app.route('/')
+# def home():
+#     all_rows = Projektas.query.all()
+#     return render_template('index.html', projektas_rows=all_rows)
 
+@app.route("/")
+def home():
+    search_text = request.args.get("searchlaukelis")
+    if search_text:
+        filtered_rows = Projektas.query.filter(Projektas.pavadinimas.ilike(search_text + "%"))
+        return render_template("index.html", projektas_rows=filtered_rows)
+    else:
+        all_rows = Projektas.query.all()
+        return render_template("index.html", projektas_rows=all_rows)
+
+
+@app.route("/prideti-projekta", methods=["GET", "POST"])
+def new_project():
+    if request.method == "GET":
+        return render_template('new_student.html')
+    elif request.method == 'POST':
+        pavadinimas = request.form.get("laukelispavadinimas")
+        kaina = float(request.form.get("laukeliskaina"))
+        new_project_row = Projektas(pavadinimas, kaina)
+        db.session.add(new_project_row)
+        db.session.commit()
+    return redirect(url_for("home"))
 
 app.run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

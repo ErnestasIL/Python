@@ -6,10 +6,18 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Students</h1>
-    <form action="" method="get"></form>
-    {% for elem in students_row %}
-    <p>{{ elem }}</p>
-    {% endfor %}
+    <h1>Students:</h1>
+    <form action="" method="get">
+      <p><input type="text" name="searchtab" /></p>
+      <p><input type="submit" value="Filter" /></p>
+    </form>
+    <h2>
+      <a href="{{ url_for('new_student') }}">Add new student</a>
+    </h2>
+    <ul>
+      {% for elem in students_row %}
+      <li>{{ elem }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
