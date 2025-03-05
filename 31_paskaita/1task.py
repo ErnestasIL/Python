@@ -23,7 +23,10 @@ class Mokinys(db.Model):
 
     @property
     def add_to_grade(self):
-        return self.grade + 1
+        if self.grade + 1 > 12:
+            return 'Finishes school'
+        else:
+            return self.grade + 1
 
     def __init__(self, name, surname, grade):
         self.name = name
