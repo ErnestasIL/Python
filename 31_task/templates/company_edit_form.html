@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editing Company: {{ one_company_row.name }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <form action="" method="POST">
+      <h2>Company name:</h2>
+      <p>
+        <input
+          type="text"
+          name="namebar"
+          id=""
+          value="{{ one_company_row.name }}"
+        />
+      </p>
+      <h2>City company located:</h2>
+      <p>
+        <input
+          type="text"
+          name="citybar"
+          id=""
+          ,
+          value="{{ one_company_row.city }}"
+        />
+      </p>
+      <p><input type="submit" value="Save Changes" /></p>
+    </form>
+  </body>
+</html>

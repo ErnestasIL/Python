@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekto{{ one_project_row.pavadinimas }}</title>
+  </head>
+  <body>
+    <form action="" method="POST">
+      <p>Projekto pavadinimas</p>
+      <p>
+        <input
+          type="text"
+          name="laukelispavadinimas"
+          value="{{ one_project_row.pavadinimas }}"
+        />
+      </p>
+      <p>Projekto kaina</p>
+      <p>
+        <input
+          type="number"
+          name="laukeliskaina"
+          value="{{one_project_row.kaina}}"
+        />
+      </p>
+      <p><input type="submit" value="Irasysi i DB" /></p>
+    </form>
+  </body>
+</html>

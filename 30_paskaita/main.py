@@ -66,6 +66,40 @@ def new_project():
         db.session.commit()
     return redirect(url_for("home"))
 
+@app.route('/trinti-projekta/<int:project_id>', methods=['POST'])
+def delete_project(project_id):
+    one_project_row = Projektas.query.get(project_id)
+    if one_project_row:
+        db.session.delete(one_project_row)
+        db.session.commit()
+    return redirect(url_for('home'))
+
+@app.route('/redaguoti-projekta/<int:project_id>', methods=['GET', 'POST'])
+def edit_project(project_id):
+    one_project_row = Projektas.query.get(project_id)
+    if not one_project_row:
+        return 'Projektas neegzistuoja'
+    if request.method == 'GET':
+        return render_template('redagavimo_forma.html', one_project_row=one_project_row)
+    if request.method == 'POST':
+        pavadinimas = request.form.get('laukelispavadinimas')
+        try:
+            kaina = float(request.form.get('laukeliskaina'))
+        except ValueError:
+            raise ValueError('kaina should be float')
+
+        one_project_row.pavadinimas = pavadinimas
+        one_project_row.kaina = kaina
+        db.session.commit()
+
+        return redirect(url_for('home'))
+
+@app.route('/projektai/<int:project_id>')
+def one_project(project_id):
+    one_project_row = Projektas.query.get(project_id)
+    if one_project_row:
+        return render_template('vienas_projektas.html', one_project_row=one_project_row)
+    return 'Bloga nuoroda i projekta'
 app.run()
 
 

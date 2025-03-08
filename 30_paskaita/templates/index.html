@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Projektai</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
     <h4>Projektu lentele</h4>
@@ -12,6 +16,11 @@
     </form>
     {% for elem in projektas_rows %}
     <p>{{ elem }}</p>
+    <a href="/projektai/{{ elem.id }}">Ziureti</a>
+    <a href="/redaguoti-projekta/{{ elem.id }}">Redaguoti</a>
+    <form action="/trinti-projekta/{{ elem.id }}" method="post">
+      <input type="submit" value="Trinti" />
+    </form>
     {% endfor %}
   </body>
 </html>
