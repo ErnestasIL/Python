@@ -15,13 +15,12 @@ class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     city = db.Column(db.String)
-    # no_of_employees = db.Column(db.Integer)
+    no_of_employees = db.Column(db.Integer)
 
     employees = db.relationship('Employee', backref=backref('company'))
 
     def __repr__(self):
         return f'ID: {self.id}  Company name: {self.name}, Company located in: {self.city}'
-    #
     def __init__(self, name, city, no_of_employees=0):
         self.name = name
         self.city = city

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Tables</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Table Number</th>
+            <th>Seats</th>
+            <th>Orders</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for table in tables %}
+        <tr>
+            <td>{{ table.number }}</td>
+            <td>{{ table.seats }}</td>
+            <td>{{ table.orders|length }}</td>
+            <td>
+                <a href="{{ url_for('table_orders', table_id=table.id) }}" class="btn btn-primary btn-sm">View Orders</a>
+                <form action="{{ url_for('delete_table', table_id=table.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Add New Table</h3>
+<form action="{{ url_for('add_table') }}" method="POST">
+    <div>
+        <label for="number" class="form-label">Table Number</label>
+        <input type="number" name="number" class="form-control" required>
+    </div>
+    <div>
+        <label for="seats" class="form-label">Seats</label>
+        <input type="number" name="seats" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Table</button>
+</form>
+{% endblock %}

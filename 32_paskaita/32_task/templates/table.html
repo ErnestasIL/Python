@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Table {{ table.number }} - Orders</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in table.orders %}
+        <tr>
+            <td>{{ order.description }}</td>
+            <td>${{ order.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Add New Order</h3>
+<form action="{{ url_for('add_order') }}" method="POST">
+    <input type="hidden" name="table_id" value="{{ table.id }}">
+    <div class="mb-2">
+        <label for="description" class="form-label">Order Description</label>
+        <input type="text" name="description" class="form-control" required>
+    </div>
+    <div>
+        <label for="price" class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" step="0.01" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add Order</button>
+</form>
+{% endblock %}
